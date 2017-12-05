@@ -68,7 +68,7 @@ To install this library you need to update your build.gradle file.
 
 # Examples and feature application
 
-An example application is created to testing purpose from the examples. The
+An example application is created for testing. The
 application can be downloaded and installed on a test server:
 <https://github.com/rbrastad/data-pull/blob/master/build/DataPullExamples.jar?raw=true>
 
