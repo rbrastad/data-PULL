@@ -30,7 +30,7 @@ Table of Contents:
     - [Usage](#markdown-header-usage)
         - [Enonic XP version >=6.12](#markdown-header-enonic-xp-version-612)
         - [Enonic XP version <=6.11](#markdown-header-enonic-xp-version-611)
-- [Example and feature application](#markdown-header-example-and-feature-application)
+- [Examples and feature application](#markdown-header-examples-and-feature-application)
     - [Getting started example: Chuck Norris Facts](#markdown-header-getting-started-example-chuck-norris-facts)
     - [Pull](#markdown-header-pull)
     - [Store](#markdown-header-store)
@@ -66,7 +66,7 @@ To install this library you need to update your build.gradle file.
     }
 
 
-# Example and feature application
+# Examples and feature application
 
 An example application is created to testing purpose from the examples. The
 application can be downloaded and installed on a test server:
@@ -159,11 +159,11 @@ The configuration below is the full configuration for the request pull and stori
 
 ## Pull
 
-When we want to get som external http json data. We need to use a pull request node configuration. If we then need to get some data inside that json structure. We need to add a response configuration node and add where the data is found.   
+When we want to pull external http json data. We need to use a pull request node configuration. If data is inside that json structure. We need to add a response configuration node and add where the data is found in the JSON.   
 
-TThe request node uses the same configuration as http-client library request and is configured the same way.  https://enonic-docs.s3.amazonaws.com/com.enonic.lib/lib-http-client/index.html
+The request node uses the same configuration as http-client library request and is configured the same way.  https://enonic-docs.s3.amazonaws.com/com.enonic.lib/lib-http-client/index.html
 
-The config below tells us that we are going to get data from https://api.chucknorris.io/jokes/search?query=music and that the data returned from the response is in the result node of the JSON response. 
+The config below tells us that we are going to get data from https://api.chucknorris.io/jokes/search?query=music and map the "result" object in the JSON as where we can find data to import. 
 
     pull : {
         request: {
@@ -178,9 +178,9 @@ The config below tells us that we are going to get data from https://api.chuckno
 ##  Store
 
 When data is going to be stored we need to tell where and how to store
-the data. This is done in the store configuration node. 
+that data. This is done in the store configuration node. 
 
-The config below tell us that data returned from the pull response is going to be saved in the chucknorris repo and in the master branch. If the repo does not exist. We will create it and name it chucknorris. If no branch is present in store.repo.create the default branch is master.  
+The config below tells us that the returned data from the pull response is going to be saved in the chucknorris repo and in the master branch. If the repo does not exist. We will create it and name it chucknorris. If no branch is present in store.repo.create the default branch is created (master).  
 
     // store parent node. Where and how to store pull request data
     store : {
