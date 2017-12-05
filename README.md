@@ -50,7 +50,7 @@ To install this library you need to update your build.gradle file.
         include "com.enonic.xp:lib-repo:${xpVersion}"
         include "com.enonic.lib:lib-http-client:1.0.0"
 
-        include 'openxp.lib:data-pull:0.9.4'
+        include 'openxp.lib:data-pull:.0.9.4.1'
     }
 
 ### Enonic XP version <=6.11
@@ -62,7 +62,7 @@ To install this library you need to update your build.gradle file.
     }
 
     dependencies {
-         include 'openxp.lib:data-pull:0.9.4'
+         include 'openxp.lib:data-pull:0.9.4.1'
     }
 
 
