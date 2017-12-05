@@ -1,0 +1,4 @@
+rootProject.name = projectName
+
+//include 'libdatapull'
+//project(':libdatapull').projectDir = new File('../lib-data-pull')

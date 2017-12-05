@@ -1,0 +1,39 @@
+html {
+  min-height: 100%;
+}
+
+#main-content {
+  background-color: lightgray;
+  height: 100%;
+  padding-top: 10px;
+}
+
+#main-container {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.icon-status {
+  width: 25%;
+  display: none;
+}
+
+#content-offline {
+  display: none;
+  margin-top: 20px;
+  opacity: 0.8;
+  font-size: 16px;
+}
+
+.online #icon-online,
+.offline #icon-offline,
+.offline #content-offline{
+  display: block;
+}
+
+#page-content {
+  font-size: 24px;
+}

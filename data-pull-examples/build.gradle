@@ -1,0 +1,53 @@
+plugins {
+    id 'com.enonic.xp.app' version '1.0.13'
+    id "com.moowork.node" version "1.1.1"
+}
+
+xp {
+  version = xpVersion
+}
+
+app {
+    name = project.appName
+    displayName = 'Data Pull Example'
+    vendorName = 'rbrastad'
+    vendorUrl = 'https://github.com/rbrastad'
+}
+
+node {
+    download = true
+    version = '6.9.2'
+}
+
+dependencies {
+    compile "com.enonic.xp:core-api:${xpVersion}"
+    compile "com.enonic.xp:portal-api:${xpVersion}"
+    include "com.enonic.xp:lib-content:${xpVersion}"
+    include "com.enonic.xp:lib-portal:${xpVersion}"
+    include "com.enonic.xp:lib-mustache:${xpVersion}"
+    include "com.enonic.xp:lib-io:${xpVersion}"
+    include "com.enonic.lib:lib-router:1.0.1"
+
+    include "com.enonic.xp:lib-node:${xpVersion}"
+    include "com.enonic.xp:lib-repo:${xpVersion}"
+    include "com.enonic.lib:lib-http-client:1.0.0"
+  
+    include "openxp.lib:data-pull:0.9.4.1"
+    //include project(':libdatapull')
+}
+
+repositories {
+    mavenLocal()
+    jcenter()
+    xp.enonicRepo()
+}
+
+task webpack(type: NodeTask) {
+    script = file('node_modules/webpack/bin/webpack.js')
+}
+
+// processes your package.json before running webpack
+webpack.dependsOn 'npmInstall'
+webpack.dependsOn 'processResources'
+
+jar.dependsOn webpack

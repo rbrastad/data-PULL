@@ -1,0 +1,76 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+        maven {
+            url 'http://repo.enonic.com/public'
+        }
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+
+    dependencies {
+        classpath "com.enonic.xp:gradle-plugin:${xpVersion}"
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6'
+        classpath 'com.moowork.gradle:gradle-node-plugin:1.2.0'
+        classpath "gradle.plugin.com.github.scobal.eslint:gradle-eslint-plugin:1.0.4"
+    }
+}
+
+apply plugin: 'maven'
+apply plugin: 'com.enonic.xp.app'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.moowork.node'
+apply plugin: 'idea'
+
+app {
+    name = project.appName
+    displayName = project.displayName
+    vendorName = 'RBrastad'
+    vendorUrl = 'https://www.rbrastad.no'
+}
+
+dependencies {
+    compile "com.enonic.xp:core-api:${xpVersion}"
+    compile "com.enonic.xp:portal-api:${xpVersion}"
+    include "com.enonic.xp:lib-content:${xpVersion}"
+    include "com.enonic.xp:lib-context:${xpVersion}"
+    include "com.enonic.xp:lib-portal:${xpVersion}"
+    include "com.enonic.xp:lib-thymeleaf:${xpVersion}"
+    include "com.enonic.xp:lib-auth:${xpVersion}"
+    include "com.enonic.xp:lib-node:${xpVersion}"
+    include "com.enonic.xp:lib-repo:${xpVersion}"
+
+    include "com.enonic.lib:lib-http-client:1.0.0"
+    include "com.enonic.lib:util:1.1.1"
+}
+
+repositories {
+    mavenLocal()
+    jcenter()
+    maven {
+        url 'http://repo.enonic.com/public'
+    }
+    maven {
+        url "https://plugins.gradle.org/m2/"
+    }
+}
+
+bintray {
+    user = "$bintrayUser"
+    key = "$bintrayApiKey"
+    publish = true
+    pkg {
+        repo = 'public'
+        name = project.appName
+        userOrg = 'openxp'
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://bitbucket.org/openxp/lib-data-pull'
+        version {
+            name = project.version
+            released = new Date()
+            configurations = ['archives']
+        }
+    }
+}

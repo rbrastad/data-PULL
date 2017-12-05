@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{{title}}</title>
+
+    <link rel="apple-touch-icon" href="{{precacheUrl}}/icons/icon.png">
+    <link rel="icon" href="{{precacheUrl}}/icons/icon.png">
+
+    <link rel="manifest" href="{{baseUrl}}/manifest.json">
+    <link rel="mask-icon" href="{{precacheUrl}}/icons/safari-pinned-tab.svg" color="#f53d3d">
+    <meta name="theme-color" content="{{themeColor}}">
+    <meta name="msapplication-config" content="{{baseUrl}}/browserconfig.xml" />
+    <meta name="msapplication-TileColor" content="{{themeColor}}">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="{{precacheUrl}}/css/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="{{precacheUrl}}/bundle.css" type="text/css"/>
+
+    <script type="text/javascript" src="{{precacheUrl}}/js/material.min.js"></script>
+    <script type="text/javascript" src="{{precacheUrl}}/bundle.js"></script>
+</head>
+
+<body>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">{{title}}</span>
+        </div>
+    </header>
+    <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">{{title}}</span>
+        <nav class="mdl-navigation">
+
+        </nav>
+    </div>
+
+    <main class="mdl-layout__content" id="main-content">
+        <div id="main-container">
+            <h4>Example APP for data pull configurations. </h4>
+            <span>All examples configurations can be found <a target="_new0" href="https://github.com/rbrastad/data-pull/tree/master/data-pull-examples/src/main/resources/controller/pull">here</a></span>
+            <span>Click on one of the links to start importing/pulling data into a repository. </span>
+            <span>The links opens an new window and data pull result will be shown when done.</span>
+            <span>Check the result in RepoXplorer after the service is finished.</span>
+            <span > Log in as super user or administrator with admin rights before clicking on the links.</span>
+            
+            <a href="{{baseUrl}}/api/pull/chuck-norris" target="_new1"><h5>Pull Chuck Norris Facts</h5> </a>
+            <a href="{{baseUrl}}/api/pull/countries" target="_new3"><h5>Pull Countries</h5> </a>
+            <a href="{{baseUrl}}/api/pull/countries-custom" target="_new4"><h5>Pull Countries Custom Config</h5> </a>
+            <a href="{{baseUrl}}/api/pull/countries-custom-no-node-name" target="_new5"><h5>Pull Countries Custom No Node Name Config</h5> </a>
+        </div>
+    </main>
+</div>
+
+<footer id="notification-bar" class="mdl-js-snackbar mdl-snackbar">
+    <div class="mdl-snackbar__text"></div>
+    <button class="mdl-snackbar__action" type="button"></button>
+</footer>
+
+</body>
+</html>
