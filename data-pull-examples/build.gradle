@@ -40,6 +40,9 @@ repositories {
     mavenLocal()
     jcenter()
     xp.enonicRepo()
+    maven {
+        url 'https://dl.bintray.com/openxp/public'
+    }
 }
 
 task webpack(type: NodeTask) {

@@ -43,21 +43,11 @@ Table of Contents:
 
 To install this library you need to update your build.gradle file.
 
-### Enonic XP version >=6.12
-
-    dependencies {
-        include "com.enonic.xp:lib-node:${xpVersion}"
-        include "com.enonic.xp:lib-repo:${xpVersion}"
-        include "com.enonic.lib:lib-http-client:1.0.0"
-
-        include 'openxp.lib:data-pull:.0.9.4.1'
-    }
-
-### Enonic XP version <=6.11
+## Gradle build script
 
     repositories {
         maven {
-          url 'https://dl.bintray.com/openxp/enonic'
+          url 'https://dl.bintray.com/openxp/public'
         }
     }
 
