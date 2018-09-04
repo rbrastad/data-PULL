@@ -9,9 +9,10 @@ exports.saveNode = function(dpConfig, pullData) {
 	dataPullConfig = dpConfig;
 
 	if (dataPullConfig.store.hasOwnProperty('node') && dataPullConfig.store.node.hasOwnProperty('nameField')) {
-		var nodeId = '/' + getNodeName(dataPullConfig);
+		var nodeId = '/' + getNodeName(pullData);
 
 		var node = getNode(nodeId, dataPullConfig);
+		
 		if (node) {
 			return modifyNode(node, pullData);
 		} else {
@@ -130,7 +131,6 @@ function getNode(nodeId, dataPullConfig) {
 		}
 
 		var nodePath = getNodePath(nodeId, dataPullConfig);
-
 		var result = repo.query({
 			start: 0,
 			count: 1,
@@ -138,7 +138,7 @@ function getNode(nodeId, dataPullConfig) {
 		});
 
 		if (result.count != 0) {
-			return repo.get(result.hits[0].id);
+			return  repo.get(result.hits[0].id);
 		} else {
 			return null;
 		}
@@ -163,7 +163,8 @@ function getNodeName(pullData) {
 		}
 
 		nodeName = nameField;
-	} else {
+	} 
+	else {
 		nodeName = pullData[dataPullConfig.store.node.nameField];
 	}
 
@@ -236,6 +237,8 @@ function existsNode(node) {
 
 		existsNode = getNode(parentPath + node._name, dataPullConfig);
 	}
+
+log.info("existNode: %s", existsNode);
 
 	return existsNode;
 }

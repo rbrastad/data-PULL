@@ -28,8 +28,6 @@ Table of Contents:
 
 - [Data PULL](#markdown-header-data-pull)
     - [Usage](#markdown-header-usage)
-        - [Enonic XP version >=6.12](#markdown-header-enonic-xp-version-612)
-        - [Enonic XP version <=6.11](#markdown-header-enonic-xp-version-611)
 - [Examples and feature application](#markdown-header-examples-and-feature-application)
     - [Getting started example: Chuck Norris Facts](#markdown-header-getting-started-example-chuck-norris-facts)
     - [Pull](#markdown-header-pull)
@@ -52,7 +50,7 @@ To install this library you need to update your build.gradle file.
     }
 
     dependencies {
-         include 'openxp.lib:data-pull:0.9.4.1'
+         include 'openxp.lib:data-pull:0.9.5'
     }
 
 
